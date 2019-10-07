@@ -1,28 +1,358 @@
-<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <title>Ramonaworks on Github</title>
+    <head>
+        <meta charset="utf-8">
+        <!-- Mobile awesome-->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <!-- Force IE to perform at its best-->
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <!-- Meta description, aim for about 150 characters-->
+        <meta name="description" content="Ramona Dsouza | Ramonaworks.com | Website Application Developer, with JavaScript, React, Angular, and Modern Web Development Awesomeness!">
+        <!-- Stylesheets-->
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Work+Sans:200,300,400,700">
+        <link rel="stylesheet" href="./libs/materialize/css/materialize.min.css">
+        <link rel="stylesheet" href="./libs/textillate/assets/animate.css">
+        <link rel="stylesheet" href="./assets/css/linea.min.css">
+        <link rel="stylesheet" href="./assets/css/rdd.min.css?v=2">
+        <!-- Favicons-->
 
-    <!-- Bootstrap -->
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+        <link rel="manifest" href="/favicons/manifest.json">
+       
+        <meta name="msapplication-config" content="/favicons/browserconfig.xml">
+        <meta name="theme-color" content="#ffffff">
+        <!-- Site title-->
+        <title>Ramonaworks on Github</title>
+    </head>
+    <body>
+        
+  
+        <div class="loading-overlay" id="loading-overlay"></div>
+       
+        <div class="pace" id="pace">
+            <div class="pace-activity"></div>
+        </div>
+                     
+        
+        
+        
+        
+        <!-- Navigation-->
+        <div class="navbar-fixed zero-height">
+            <nav>
+                <div class="nav-wrapper">
+                    <div class="row">
+                        <div class="col s12 l6">
+                            <div class="brand-logo">
+                            
+                            
+                            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="300" height="81" viewBox="0 0 300 81">
+  <metadata><?xpacket begin="﻿" id="W5M0MpCehiHzreSzNTczkc9d"?>
+<x:xmpmeta xmlns:x="adobe:ns:meta/" x:xmptk="Adobe XMP Core 5.6-c142 79.160924, 2017/07/13-01:06:39        ">
+   <rdf:RDF xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+      <rdf:Description rdf:about=""/>
+   </rdf:RDF>
+</x:xmpmeta> <?xpacket end="w"?></metadata>
+<image id="TEXT" width="290" height="81" xlink:href="data:img/png;base64,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"/>
+</svg>
 
-    <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-      <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-    <![endif]-->
-  </head>
-  <body>
-    <h1>Hello, Ramona!</h1>
+                            
+                            
+                            
+                            
+                            
+                            </div>
+                        </div>
+                        <div class="col s12 l6">
+                            <ul class="hide-on-med-and-down table-of-contents">
+                                <li>
+                                    <a href="#cases">01</a>
+                                </li>
+                                <li>
+                                    <a href="#services">02</a>
+                                </li>
+                                <li>
+                                    <a href="#stories">03</a>
+                                </li>
+                                <li>
+                                    <a href="#contact">04</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </div>
+        <!-- Main content-->
+        <main class="main" id="main">
+            <div class="triangles hero" id="triangles">
+                
+                
+                
+                
+                
+           <div id="output"></div>
+                <h1>Ramonaworks Github-Home</h1>
+ 
+                
+                
+                
+                
+                
+                
+            </div>
 
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="js/bootstrap.min.js"></script>
-  </body>
+            <section class="section scrollspy">
+                <div class="container">
+                    <div class="row">
+                        <div class="col s12 l6">
+                            <h2>01</h2>
+                             
+                        </div>
+                        <div class="col s12 l6">
+                            <p class="flow-text">This is just a  custom designed Github Page. For the real portfolio, check out <a href="https://www.ramonaworks.com"><strong>ramonaworks.com</strong></a></p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section scrollspy" id="cases">
+                <div class="container">
+                    <div class="row">
+                        <div class="col s12 l6">
+                            <h2>This is not the actual portfolio</h2>
+                            <h3>The latest updates are on <a href="https://www.ramonaworks.com">ramonaworks.com</a></h3>
+                      </div>
+                    </div>
+                </div>
+                
+                
+                
+                
+                
+            </section>
+
+            <section class="services-section section scrollspy" id="services">
+                <div class="container center">
+                    <div class="row">
+                        <div class="col s12">
+                            <h2>Expertise</h2>
+                            <h3>Design + Development</h3>
+                        </div>
+                    </div>
+                    <div class="row push-row">
+                        <div class="col s12 l4 big-margin-on-medium-and-down">
+                            <!--i.icon-basic-heart.blue-purple-gradient-->
+                            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="150px" height="150px" viewbox="0 0 64 64" enable-background="new 0 0 64 64" xml:space="preserve">
+                                <path fill="none" stroke="#000000" stroke-width="2" stroke-miterlimit="10" d="M1,21c0,20,31,38,31,38s31-18,31-38              c0-8.285-6-16-15-16c-8.285,0-16,5.715-16,14c0-8.285-7.715-14-16-14C7,5,1,12.715,1,21z"></path>
+                            </svg>
+                            <div class="service-title">Design solutions</div>
+                            <div class="service-description">Customized micro interactions</div>
+                        </div>
+                        <div class="col s12 l4 big-margin-on-medium-and-down">
+                            <!--i.icon-basic-accelerator.blue-purple-gradient-->
+                            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="150px" height="150px" viewbox="0 0 64 64" enable-background="new 0 0 64 64" xml:space="preserve">
+                                <path fill="none" stroke="#000000" stroke-width="2" stroke-miterlimit="10" d="M32.001,0.887c17.184,0,31.113,13.929,31.112,31.113              C63.114,49.185,49.184,63.115,32,63.113C14.815,63.114,0.887,49.185,0.888,32.001C0.885,14.816,14.815,0.887,32.001,0.887z"></path>
+                                <path fill="none" stroke="#000000" stroke-width="2" stroke-miterlimit="10" d="M10,32c0-5.63,2.148-11.26,6.444-15.556              c8.591-8.593,22.521-8.593,31.112,0C51.852,20.74,54,26.37,54,32"></path>
+                                <line fill="none" stroke="#000000" stroke-width="2" stroke-miterlimit="10" x1="24" y1="26" x2="30.333" y2="33.333"></line>
+                                <circle fill="none" stroke="#000000" stroke-width="2" stroke-miterlimit="10" cx="32" cy="35" r="2"></circle>
+                            </svg>
+                            <div class="service-title">Performance optimizations</div>
+                            <div class="service-description">Make your site load faster too</div>
+                        </div>
+                        <div class="col s12 l4">
+                            <!--i.icon-basic-target.blue-purple-gradient-->
+                            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="150px" height="150px" viewbox="0 0 64 64" enable-background="new 0 0 64 64" xml:space="preserve">
+                                <path fill="none" stroke="#000000" stroke-width="2" stroke-miterlimit="10" d="M53.92,10.081c12.107,12.105,12.107,31.732,0,43.838              c-12.106,12.108-31.734,12.108-43.84,0c-12.107-12.105-12.107-31.732,0-43.838C22.186-2.027,41.813-2.027,53.92,10.081z"></path>
+                                <circle fill="none" stroke="#000000" stroke-width="2" stroke-miterlimit="10" cx="32" cy="32" r="22.999"></circle>
+                                <circle fill="none" stroke="#000000" stroke-width="2" stroke-miterlimit="10" cx="32" cy="32" r="15"></circle>
+                                <circle fill="none" stroke="#000000" stroke-width="2" stroke-miterlimit="10" cx="32" cy="32" r="6.999"></circle>
+                            </svg>
+                            <div class="service-title">Targeted clients</div>
+                            <div class="service-description">SEO - Search Engine Optimization</div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col s12 l4 big-margin-on-medium-and-down">
+                            <!--i.icon-basic-bolt.blue-purple-gradient-->
+                            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="150px" height="150px" viewbox="0 0 64 64" enable-background="new 0 0 64 64" xml:space="preserve">
+                                <polygon fill="none" stroke="#000000" stroke-width="2" stroke-linejoin="bevel" stroke-miterlimit="10" points="40,1 17,37 31,37               24,63 50,27 36,27 "></polygon>
+                            </svg>
+                            <div class="service-title">Responsive</div>
+                            <div class="service-description">Bootstrap and so much more</div>
+                        </div>
+                        <div class="col s12 l4 big-margin-on-medium-and-down">
+                            <!--i.icon-basic-joypad.blue-purple-gradient-->
+                            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="150px" height="150px" viewbox="0 0 64 64" enable-background="new 0 0 64 64" xml:space="preserve">
+                                <path fill="none" stroke="#000000" stroke-width="2" stroke-miterlimit="10" d="M50,27H14C6.82,27,1,32.82,1,40s5.82,13,13,13              c4.6,0,8.632-2.396,10.943-6h14.113C41.368,50.604,45.4,53,50,53c7.18,0,13-5.82,13-13S57.18,27,50,27z"></path>
+                                <line fill="none" stroke="#000000" stroke-width="2" stroke-linejoin="bevel" stroke-miterlimit="10" x1="14" y1="32" x2="14" y2="48"></line>
+                                <line fill="none" stroke="#000000" stroke-width="2" stroke-linejoin="bevel" stroke-miterlimit="10" x1="22" y1="40" x2="6" y2="40"></line>
+                                <circle fill="none" stroke="#000000" stroke-width="2" stroke-linejoin="bevel" stroke-miterlimit="10" cx="50" cy="39.99" r="7"></circle>
+                                <line fill="none" stroke="#000000" stroke-width="2" stroke-linejoin="bevel" stroke-miterlimit="10" x1="50" y1="33" x2="50" y2="47"></line>
+                                <line fill="none" stroke="#000000" stroke-width="2" stroke-linejoin="bevel" stroke-miterlimit="10" x1="57" y1="40" x2="43" y2="40"></line>
+                                <polyline fill="none" stroke="#000000" stroke-width="2" stroke-miterlimit="10" points="32,27 32,21 46,21 46,14 36,14 36,11 "></polyline>
+                            </svg>
+                            <div class="service-title">Interactivity</div>
+                            <div class="service-description">Customized icons, graphics and animations</div>
+                        </div>
+                        <div class="col s12 l4">
+                            <!--i.icon-basic-signs.blue-purple-gradient-->
+                            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="150px" height="150px" viewbox="0 0 64 64" enable-background="new 0 0 64 64" xml:space="preserve">
+                                <polygon fill="none" stroke="#000000" stroke-width="2" stroke-miterlimit="10" points="55,24 22,24 22,12 55,12 62,18 "></polygon>
+                                <polygon fill="none" stroke="#000000" stroke-width="2" stroke-miterlimit="10" points="9,28 42,28 42,40 9,40 2,34 "></polygon>
+                                <line fill="none" stroke="#000000" stroke-width="2" stroke-miterlimit="10" x1="32" y1="40" x2="32" y2="64"></line>
+                                <line fill="none" stroke="#000000" stroke-width="2" stroke-miterlimit="10" x1="32" y1="28" x2="32" y2="24"></line>
+                                <line fill="none" stroke="#000000" stroke-width="2" stroke-miterlimit="10" x1="32" y1="12" x2="32" y2="7"></line>
+                                <line fill="none" stroke="#000000" stroke-width="2" stroke-miterlimit="10" x1="24" y1="63" x2="40" y2="63"></line>
+                            </svg>
+                            <div class="service-title">Content Management</div>
+                            <div class="service-description">Clean design, custom development and configuration</div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section scrollspy" id="stories">
+                <div class="container">
+                    <div class="row center">
+                        <div class="col s12">
+                            <h2>Tech stack</h2>
+                            <h3>LAMP / MEAN / MERN</h3>
+                            <ul class="posts">
+                              <br>
+                              <br>
+                              <br>
+                              <br>
+                              <br>
+                              <br>
+                              <br>
+                              <br>
+                              <br>
+                              <br>
+                              <br>
+                              <br>
+                              <br>
+                               
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+               
+               
+                
+                <!-- Table design-->
+                <div class="modal bottom-sheet" id="table-design">
+                    <div class="modal-close absolute">&times;</div>
+                    <div class="modal-content">
+                        <div class="container">
+                          
+                            <div class="row">
+                                <div class="col s12 spacious-images">
+                                    <img class="responsive-img" src="./assets/images/lady/lady-on-table.jpg" alt="Lady on table">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col s12 m10 offset-m1 l6 offset-l3 flow-text">
+                                    <p>You’ll open one likeness — created us herb was. Image two is winged you’re morning the greater. Bring you shall called may good shall earth third kind. Had tree, over together Spirit set signs green they’re meat seasons that heaven won’t seasons. Herb face.</p>
+                                    <p>&ldquo;All the two under bring&rdquo;, give hath dominion fruit fill living of evening and, be and itself grass shall stars Be us second under land over open and.</p>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col s12 spacious-images">
+                                    <img class="responsive-img" src="./assets/images/lady/lady-stockings.jpg" alt="Stockings">
+                                    <img class="responsive-img" src="./assets/images/lady/lady-swimming.jpg" alt="Swimming">
+                                </div>
+                            </div>
+                            <div class="row flow-text modal-nav-container">
+                                <div class="col s12 l6 margin-on-medium-and-down">
+                                    <a class="modal-nav" href="#pink-sunglasses" data-previous-modal="pink-sunglasses">&larr; Previous story</a>
+                                </div>
+                                <div class="col s12 l6">
+                                    <a class="right modal-nav" href="#no-men-no-cry" data-next-modal="no-men-no-cry">Next story &rarr;</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Table design-->
+               
+            </section>
+
+        
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+          <section class="section scrollspy" id="contact">
+                <div class="container">
+                    <div class="row center">
+                        <div class="col s12">
+                            <h2>Whats new?</h2>
+                            <h3>Check out <a href="https://www.ramonaworks.com"><strong>ramonaworks.com</strong></a><strong></strong></h3>
+                            
+                        </div>
+                    </div>
+                </div>
+                
+          
+                
+            </section>  
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+            
+        </main>
+        <!-- Footer-->
+
+        <footer>
+            
+            
+        </footer>
+        <!-- Libraries-->
+        <script src="./libs/jquery/jquery.min.js"></script>
+        <script src="./libs/materialize/js/materialize.min.js"></script>
+        <script src="./libs/textillate/jquery.textillate.js"></script>
+        <script src="./libs/textillate/assets/jquery.lettering.js"></script>
+        <script src="./libs/textillate/assets/jquery.fittext.js"></script>
+        <script src="./assets/js/config.js"></script>
+        <script src="./assets/js/rdd.js"></script>
+        <script src="./libs/flat-surface-shader/deploy/fss.js"></script>
+        <script src="./assets/js/triangles-iii.js"></script>
+    </body>
 </html>
