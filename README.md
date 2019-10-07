@@ -1,5 +1,5 @@
-# Yo! 
+# Hey whats up! 
 
 
-[link](https://ramonaworks.github.io/ "Ramonaworks Github Pages").
-[link](https://ramonaworks.com/ "Ramonaworks Portfolio").
+#[Ramonaworks Github Pages](https://ramonaworks.github.io/ "Ramonaworks Github Pages").
+#[Ramonaworks Portfolio](https://ramonaworks.com/ "Ramonaworks Portfolio").
